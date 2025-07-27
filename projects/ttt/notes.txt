@@ -1,0 +1,84 @@
+Description:
+	Write a program for a tic tac toe game.
+	In this game, 2 players interact with each other on a board by placing x's and o's on the board.
+	If either player gets 3 'x's or 3 o's in a row (horozontal, vertical, or diagonal), that player wins.
+
+Nouns:
+	- Players
+	- Human and Computer
+
+	- Board
+		- constant for different positions? Object: // {1: ' ', 2: ' ', 3: ' '}
+		- takes care of everything on the board, display board.
+		- deals with the different positions.
+
+	-Squares which can be x or o
+
+	- Game
+
+Verbs:
+	- Squares can be placed
+	- Players can place squares on board
+	- If players get certain squares in a row, they can win the game.
+	- Computer class: should have logic that determines its best move.
+		- if 5 available, choose 5.
+		- If 2 in a row offense, choose the third one.
+		- If 2 in a row defense, choose the third one.
+		- else choose random square.
+
+Responsibilities:
+	- Board:
+		- displays the board.
+		- tracks winning lines: array of values.
+		- has an object referencing the board that tracks player's squares.
+		- tracks if 2 in a row / 3 in a row, etc.
+		- tracks win / loss / tie
+			
+	- Squares:
+		- has a property referencing its value, which can be ' ', 'x', or 'o'.
+		- can be moved by players onto a spot on the board.
+
+		Both players:
+			- keep a score
+
+	- Human Player:
+		- Answers prompts at each stage in the game.
+		- During the main game, answers prompts about where to place tiles.
+		- Should have a diagram of the board at this point that shows what is available.
+		- get name property.
+		
+	- Computer Player:
+		- doesn't care about diagram.
+		- Looks only at winning lines vs. the squares object.
+		- Computer is o. If it has two o's in a row, chooses the third 'o' to make a win.
+		- all computer logic here.
+
+	- Game
+		- organizes and instanties all players, the board, etc.
+		- Starts the game and the game loop.
+		
+	Loop:
+		- Instantiate a human and computer and board entities
+		- Get human player's name.
+		- Start the game, no worries about rules.
+		- Prompt the human player to pick 1, 2, 3, 4, 5, 6, 7, 8, 9
+		- human picks move, comp picks move
+		- repeat until win or tie
+		- Ask Human if they want to play again. If yes, repeat the loop.
+
+	Validation:
+		Human name
+			- can't be empty, should be capitalized
+
+		Human choice
+			- can't chose a square already chosen
+			- if available squares doesn't include the hcoice, in valid
+
+
+iterate through winning lines, checking that the filter length is at 2.
+
+Computer Logic:
+
+Iterate through winning lines, check to see the values. If any of them have 2 values that are O's
+	take the last remaining choice in the array.
+If none are O's
